@@ -6,7 +6,7 @@
 use Win32::EventLog;
 use Net::SMTP;
 
-$VERSION=1.1;
+$VERSION=1.2;
 $CONFIG= shift;
 $DEBUG = shift || 0;
 
@@ -320,6 +320,10 @@ sub save_config
 =head1 NAME
 
 event_mail - This script scans an NT event log and emails any changes ( after filtering )
+
+=head1 README
+
+This script scans an NT event log and SMTP emails any new events ( after filtering )
 
 =head1 DESCRIPTION
 

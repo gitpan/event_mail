@@ -1,4 +1,4 @@
-event_mail  Version 1.0
+event_mail  Version 1.2
 *** Syntax: event_mail config_file {DEBUG}
 
 (C) 2001 Robert Eden, ADC Telecommunications, rmeden@yahoo.com
