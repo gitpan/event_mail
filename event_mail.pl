@@ -6,13 +6,14 @@
 use Win32::EventLog;
 use Net::SMTP;
 
+$VERSION=1.1;
 $CONFIG= shift;
 $DEBUG = shift || 0;
 
 unless ($CONFIG)
 {
     print '
-event_mail  Version 1.0
+event_mail  Version 1.1
 *** Syntax: event_mail config_file {DEBUG}
 
 (C) 2001 Robert Eden, ADC Telecommunications, rmeden@yahoo.com
@@ -315,4 +316,44 @@ sub save_config
     }
     close INFILE;
 } # save config file
+
+=head1 NAME
+
+event_mail - This script scans an NT event log and emails any changes ( after filtering )
+
+=head1 DESCRIPTION
+
+This program emails changes to the NT event log to a list
+of users in a config file.
+
+Config File Format
+
+    \# right of a \# are comments
+    MACHINE         computername        # machine name of eventlog (optional)
+    MAILRELAY       address             # SMTP host to relay mail
+    MAILHOST        address             # host name of machine sending email (if RELAY requires it)
+    MAILTO          user@host user@host # space separated addresses
+    MAILFROM        user@host           # for errors
+    MAILSUBJ        subject             # subject for email (optional)
+    SKIPINFO        1                   # skips info messages         
+    FILTER_IN       regexp              # filters in messages
+    FILTER_OUT      regexp              # filters out messages         
+    FILTER_OUT      regexp2             # 2nd filter expression 
+
+=head1 PREREQUISITES
+
+This script requires C<Win32::EventLog> and C<Net::SMTP>;
+
+=pod OSNAMES
+
+Windows NT
+Windows 2000
+
+=pod SCRIPT CATEGORIES
+
+Win32
+Win32/Utilities
+
+=cut
+
 
